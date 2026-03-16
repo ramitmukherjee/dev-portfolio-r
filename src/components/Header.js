@@ -49,7 +49,7 @@ const Header = () => {
       backgroundColor="#18181b"
       zIndex={100}
     >
-      <Box color="white" maxWidth="1280px">
+      <Box maxWidth="1280px">
         <HStack
           px={16}
           py={4}
@@ -61,7 +61,7 @@ const Header = () => {
             <HStack spacing={3}>
               {socials.length > 0 && socials.map(social => (
                 <Link target="_blanlk" href={social.url}>
-                  <FontAwesomeIcon size="2x" icon={social.icon} />
+                  <FontAwesomeIcon color="white" size="2x" icon={social.icon} />
                 </Link>
               ))}
               

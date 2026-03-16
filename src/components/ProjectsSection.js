@@ -1,6 +1,6 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Center, Heading } from "@chakra-ui/react";
+import { ScrollArea, Box, Center, Heading, Flex, VStack } from "@chakra-ui/react";
 import Card from "./Card";
 
 const projects = [
@@ -54,7 +54,7 @@ const projects = [
   },
 ];
 
-const projectsHeader="Featured Projects"
+const projectsHeader = "Featured Projects"
 
 const ProjectsSection = () => {
   return (
@@ -62,28 +62,38 @@ const ProjectsSection = () => {
       backgroundColor="#abf"
       p={8}
       alignItems="flex-start"
+      gap="15rem"
       spacing={8}
     >
       <Heading w="100%" textAlign="center" as="h1" id="projects-section">
         {projectsHeader}
       </Heading>
-      <Box
-        display="flex"
-        gap={3}
-        overflow={"auto"}
-        w="2024px"
-      >
-        {projects.map((project) => (
-          <Card
-            w="10000px"
-            h="600px"
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.getImageSrc()}
-          />
-        ))}
-      </Box>
+
+      <ScrollArea.Root>
+        <ScrollArea.Viewport>
+          <ScrollArea.Content py="4">
+            <Box
+              display="flex"
+              gap={3}
+              flexWrap="nowrap"
+            >
+              {projects.map((project) => (
+                <Card
+                  minWidth="400px"
+                  h="400px"
+                  key={project.title}
+                  title={project.title}
+                  description={project.description}
+                  imageSrc={project.getImageSrc()}
+                />
+              ))}
+            </Box>
+          </ScrollArea.Content>
+        </ScrollArea.Viewport>
+        <ScrollArea.Scrollbar orientation="horizontal" />
+        <ScrollArea.Corner />
+      </ScrollArea.Root>
+
     </FullScreenSection>
   );
 };
