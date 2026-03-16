@@ -1,5 +1,5 @@
 import * as React from "react";
-import { VStack } from "@chakra-ui/react";
+import { VStack, Divider } from "@chakra-ui/react";
 
 /**
  * Illustrates the use of children prop and spread operator
@@ -9,8 +9,9 @@ const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
     <VStack
       backgroundColor={boxProps.backgroundColor}
       color={isDarkBackground ? "white" : "black"}
+      mb={2}
     >
-      <VStack maxWidth="1280px" minHeight="100vh" {...boxProps}>
+      <VStack maxWidth="100%" minHeight="80vh" {...boxProps}>
         {children}
       </VStack>
     </VStack>
